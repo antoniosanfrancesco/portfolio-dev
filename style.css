@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #1F2041; /* Sfondo principale Blu Notte */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Carattere Monospaced per i dettagli tecnici */
+.badge, 
+code, 
+small,
+.navbar-brand {
+    font-family: 'JetBrains Mono', monospace !important;
+    letter-spacing: -0.5px;
+}
+
+code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.portfolio-panel {
+    background-color: #4B3F72; /* Il tuo colore richiesto */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Sottilissimo profilo di luce */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+
+/* Effetto di sollevamento al passaggio del mouse */
+.portfolio-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Rimuove l'effetto hover dalla navbar fixed */
+nav.portfolio-panel:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Segnaposto immagini interno alle card */
+.glass-card-img-placeholder {
+    height: 180px;
+    background: rgba(31, 32, 65, 0.5); /* Usa lo sfondo del sito ma scurito */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.text-accent {
+    color: #C3423F !important;
+}
+
+/* Badge tecnologici */
+.badge {
+    background: rgba(172, 190, 163, 0.15) !important;
+    border: 1px solid rgba(172, 190, 163, 0.3);
+    font-weight: 500;
+}
+
+/* Pulsante principale (Esplora / Scrivimi) */
+.btn-light {
+    background-color: #C3423F !important;
+    border: none;
+    color: #d9d9d9 !important;
+    transition: all 0.2s ease;
+}
+.btn-light:hover {
+    background-color: #cc5858 !important;
+    transform: scale(1.03);
+}
+
+/* Pulsanti secondari (Deploy) */
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #fff;
+}
