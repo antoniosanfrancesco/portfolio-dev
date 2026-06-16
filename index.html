@@ -16,9 +16,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
 
-    <!-- NAVBAR -->
     <!-- NAVBAR -->
 		<nav id="mainNav" class="navbar navbar-dark navbar-expand-lg fixed-top custom-navbar">
 				<div class="container-fluid">
@@ -38,16 +39,64 @@
     <!-- CONTENUTO PRINCIPALE -->
     <main class="container my-5 pt-5">
 
-        <!-- HERO SECTION -->
-        <section class="row min-vh-100 align-items-center justify-content-center">
-            <div class="col-md-8 text-center text-white">
-                <div class="portfolio-panel p-5" data-aos="fade-up">
-                    <h1 class="display-4 fw-bold mb-3">Ciao <br> Sono Antonio</h1>
-                    <p class="lead mb-4 opacity-75">Qui trovi una selezione dei miei esperimenti e web app in produzione.</p>
-                    <a href="#progetti" class="btn btn-light rounded-pill px-4 py-2 fw-semibold shadow-sm">Esplora Progetti</a>
-                </div>
-            </div>
-        </section>
+      
+		<!-- HERO SECTION PREMIUM -->
+		<section id="hero" class="hero-section min-vh-100 d-flex align-items-center position-relative overflow-hidden">
+				
+				<!-- Bagliori colorati di sfondo (Glow Blobs) -->
+				<div class="hero-blob blob-1"></div>
+				<div class="hero-blob blob-2"></div>
+
+				<div class="container position-relative z-1">
+						<div class="row align-items-center gy-5">
+								
+								<!-- Testo della Hero (Sinistra) -->
+								<div class="col-lg-7 text-center text-lg-start">
+										<!-- Piccolo badge moderno -->
+										<span class="hero-badge mb-3 px-3 py-2 rounded-pill d-inline-block fw-semibold text-uppercase tracking-wider">Disponibile per Nuovi Progetti</span>
+										
+										<h1 class="display-2 fw-bold text-white mb-3">
+												Ciao sono un aspirante <span class="text-gradient">Frontend Developer</span>
+										</h1>
+										
+										
+										<p class="text-white mb-5 hero-lead mx-auto mx-lg-0 text-white">
+												Realizzo interfacce web moderne, performanti e curate nei minimi dettagli. Trasformo idee complesse in esperienze digitali pulite, fluide ed intuitive.
+										</p>
+										
+										<!-- Pulsanti Call to Action Asimmetrici -->
+										<div class="flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+												<a href="#progetti" class="btn btn-light rounded-pill px-4 fw-semibold shadow-sm">
+														Guarda i miei progetti
+												</a>
+										</div>
+								</div>
+								
+								<!-- Grafica di codice (Destra - Scompare su Mobile per fare spazio) -->
+								<div class="col-lg-5 text-center mt-5 mt-lg-0">
+										
+										<!-- ABBIAMO RIMESSO LA SCATOLA ESTERNA -->
+										<div class="code-window shadow-lg text-start">
+												
+												<!-- ABBIAMO RIMESSO LA BARRA SUPERIORE CON I PALLINI -->
+												<div class="code-header d-flex gap-2 p-3">
+														<span class="code-dot red"></span>
+														<span class="code-dot yellow"></span>
+														<span class="code-dot green"></span>
+												</div>
+												
+												<!-- Qui dentro rimane il tuo codice pulito e i tuoi numeri di riga -->
+												<div class="code-body p-4 d-flex gap-3">
+														<div class="code-lines text-muted text-end user-select-none">
+																1<br>2<br>3<br>4<br>5
+														</div>
+														<pre class="m-0 flex-grow-1"><code><span class="code-keyword">const</span> developer = {<br>	name: <span class="code-string">'Antonio'</span>,<br>	role: <span class="code-string">'Frontend Dev'</span>,<br>	passionate: <span class="code-boolean">true</span><br>	};<br><span class="code-comment">// Ready to build your next app!</span></code></pre>
+												</div>
+
+														</div> <!-- Fine code-window -->
+								</div> <!-- Fine col-lg-5 -->
+
+		</section>
 
         <!-- SEZIONE PROGETTI -->
         <section id="progetti" class="py-5">

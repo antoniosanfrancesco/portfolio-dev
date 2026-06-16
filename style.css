@@ -135,3 +135,77 @@ nav.portfolio-panel:hover {
         padding-top: 1rem;
     }
 }
+/* ==========================================
+   FINESTRA DI CODICE COMPLETA (Scatola + Sintassi)
+   ========================================== */
+
+/* 1. Il contenitore esterno (La scatola) */
+.code-window {
+    background-color: #282a36 !important; /* Sfondo scuro stile Dracula Theme */
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+    display: block !important;
+    transition: transform 0.3s ease;
+}
+
+.code-window:hover {
+    transform: translateY(-5px); /* Micro-animazione quando ci passi sopra */
+}
+
+/* 2. La barra superiore con i tre pallini Mac */
+.code-header {
+    background-color: #21222c !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: flex !important;
+    gap: 8px !important;
+    padding: 15px !important;
+}
+
+/* I tre pallini colorati */
+.code-dot {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+.code-dot.red    { background-color: #ff5f56 !important; }
+.code-dot.yellow { background-color: #ffbd2e !important; }
+.code-dot.green  { background-color: #27c93f !important; }
+
+/* 3. Il corpo interno (Testo base e layout) */
+.code-body {
+    padding: 20px !important;
+    background-color: transparent !important;
+    font-family: 'JetBrains Mono', monospace !important; /* Sfrutta il font che hai nel tuo Head */
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    color: #f8f8f2 !important; /* Colore bianco sporco per i segni grafici come { } e = */
+}
+
+/* Colore dei numeri di riga lateral */
+.code-lines {
+    color: #6272a4 !important; /* Grigio accennato */
+    font-family: inherit !important;
+}
+
+/* 4. I COLORI DELLA SINTASSI (Ripristinati) */
+.code-keyword {
+    color: #ff79c6 !important; /* Rosa acceso per 'const' */
+    font-weight: bold !important;
+}
+
+.code-string {
+    color: #f1fa8c !important; /* Giallo pastello per i testi come 'Antonio' e 'Frontend Dev' */
+}
+
+.code-boolean {
+    color: #bd93f9 !important; /* Viola/Lilla per il valore 'true' */
+    font-style: italic !important;
+}
+
+.code-comment {
+    color: #6272a4 !important; /* Grigio-azzurro rilassante per i commenti */
+    font-style: italic !important;
+}
