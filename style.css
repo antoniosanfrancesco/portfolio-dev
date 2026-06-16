@@ -89,3 +89,38 @@ nav.portfolio-panel:hover {
     border-color: rgba(255, 255, 255, 0.6);
     color: #fff;
 }
+
+/* ==========================================
+   NAVBAR DINAMICA E FLUIDA
+   ========================================== */
+
+/* 1. Stato Iniziale (Cima alla pagina) */
+.custom-navbar {
+    background-color: #4B3F72; /* Si fonde con lo sfondo blu notte */
+    padding: 1.5rem 2rem; /* Più alta e spaziosa */
+    margin: 0;
+    border-radius: 0;
+    border: 1px solid transparent; 
+    /* La transizione rende il passaggio morbidissimo */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Stato "Scrolled" (Quando inizi a scendere) */
+.custom-navbar.scrolled {
+    background-color: #4B3F72; /* Il tuo viola/indaco solido */
+    margin: 1rem; /* Si stacca dai bordi dello schermo */
+    padding: 0.5rem 1.5rem; /* Diventa più sottile */
+    border-radius: 20px; /* Diventa arrotondata */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* (Opzionale ma consigliato) - Rende lo sfondo del toggle mobile dello stesso colore quando aperto */
+@media (max-width: 991px) {
+    .custom-navbar {
+        background-color: #1F2041; 
+    }
+    .custom-navbar.scrolled {
+        background-color: #4B3F72;
+    }
+}

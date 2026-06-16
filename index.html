@@ -19,20 +19,21 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top portfolio-panel m-3">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white fw-bold" href="#">Antonio Sanfrancesco</a>
-            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="#progetti">Progetti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contatti">Contatti</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- NAVBAR -->
+		<nav id="mainNav" class="navbar navbar-expand-lg fixed-top custom-navbar">
+				<div class="container-fluid">
+						<a class="navbar-brand text-white fw-bold" href="#">Antonio Sanfrancesco</a>
+						<button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+								<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNav">
+								<ul class="navbar-nav ms-auto align-items-center">
+										<li class="nav-item"><a class="nav-link text-white" href="#progetti">Progetti</a></li>
+										<li class="nav-item"><a class="nav-link text-white" href="#contatti">Contatti</a></li>
+								</ul>
+						</div>
+				</div>
+		</nav>
 
     <!-- CONTENUTO PRINCIPALE -->
     <main class="container my-5 pt-5">
@@ -41,7 +42,7 @@
         <section class="row min-vh-100 align-items-center justify-content-center">
             <div class="col-md-8 text-center text-white">
                 <div class="portfolio-panel p-5" data-aos="fade-up">
-                    <h1 class="display-4 fw-bold mb-3">Ciao, sono Antonio</h1>
+                    <h1 class="display-4 fw-bold mb-3">Ciao <br> Sono Antonio</h1>
                     <p class="lead mb-4 opacity-75">Qui trovi una selezione dei miei esperimenti e web app in produzione.</p>
                     <a href="#progetti" class="btn btn-light rounded-pill px-4 py-2 fw-semibold shadow-sm">Esplora Progetti</a>
                 </div>
@@ -149,5 +150,18 @@
         once: true,    
       });
     </script>
-</body>
+
+		<!-- Script per la Navbar Dinamica -->
+    <script>
+        document.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+	</body>
 </html>
+
