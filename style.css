@@ -115,12 +115,23 @@ nav.portfolio-panel:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* (Opzionale ma consigliato) - Rende lo sfondo del toggle mobile dello stesso colore quando aperto */
+/* Gestione Mobile Perfetta */
 @media (max-width: 991px) {
     .custom-navbar {
-        background-color: #1F2041; 
+        background-color: #4B3F72 !important;
+        padding: 1rem !important;
     }
+    
+    /* Quando si scende su mobile, la pillola fluttuante si adatta allo schermo stretto */
     .custom-navbar.scrolled {
+        background-color: #4B3F72 !important;
+        margin: 0.5rem; /* Un margine più piccolo per non rubare spazio sullo schermo del telefono */
+        width: calc(100% - 1rem); /* Impedisce alla navbar di strabordare a destra */
+    }
+
+    /* Mantiene lo sfondo solido all'interno del menu quando viene aperto */
+    .navbar-collapse {
         background-color: #4B3F72;
+        padding-top: 1rem;
     }
 }
