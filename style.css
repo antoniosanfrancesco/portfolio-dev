@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #1F2041; /* Sfondo principale Blu Notte */
+    background-color: #1F2041; 
     color: #ffffff;
     overflow-x: hidden;
 }
@@ -29,8 +29,8 @@ html {
 
 
 .portfolio-panel {
-    background-color: #4B3F72; /* Il tuo colore richiesto */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Sottilissimo profilo di luce */
+    background-color: #4B3F72; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
@@ -90,9 +90,9 @@ nav.portfolio-panel:hover {
     color: #fff;
 }
 
-/* ==========================================
+/*
    NAVBAR DINAMICA E FLUIDA
-   ========================================== */
+   */
 
 /* 1. Stato Iniziale (Cima alla pagina) */
 .custom-navbar {
@@ -107,7 +107,7 @@ nav.portfolio-panel:hover {
 
 /* 2. Stato "Scrolled" (Quando inizi a scendere) */
 .custom-navbar.scrolled {
-    background-color: #4B3F72; /* Il tuo viola/indaco solido */
+    background-color: #4B3F72; 
     margin: 1rem; /* Si stacca dai bordi dello schermo */
     padding: 0.5rem 1.5rem; /* Diventa più sottile */
     border-radius: 20px; /* Diventa arrotondata */
@@ -115,17 +115,17 @@ nav.portfolio-panel:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Gestione Mobile Perfetta */
+/* Gestione Mobile */
 @media (max-width: 991px) {
     .custom-navbar {
         background-color: #4B3F72 !important;
         padding: 1rem !important;
     }
     
-    /* Quando si scende su mobile, la pillola fluttuante si adatta allo schermo stretto */
+    
     .custom-navbar.scrolled {
         background-color: #4B3F72 !important;
-        margin: 0.5rem; /* Un margine più piccolo per non rubare spazio sullo schermo del telefono */
+        margin: 0.5rem;
         width: calc(100% - 1rem); /* Impedisce alla navbar di strabordare a destra */
     }
 
@@ -135,9 +135,7 @@ nav.portfolio-panel:hover {
         padding-top: 1rem;
     }
 }
-/* ==========================================
-   FINESTRA DI CODICE COMPLETA (Scatola + Sintassi)
-   ========================================== */
+/* FINESTRA DI CODICE COMPLETA (Scatola + Sintassi) */
 
 /* 1. Il contenitore esterno (La scatola) */
 .code-window {
@@ -178,7 +176,7 @@ nav.portfolio-panel:hover {
 .code-body {
     padding: 20px !important;
     background-color: transparent !important;
-    font-family: 'JetBrains Mono', monospace !important; /* Sfrutta il font che hai nel tuo Head */
+    font-family: 'JetBrains Mono', monospace !important; 
     font-size: 0.9rem !important;
     line-height: 1.6 !important;
     color: #f8f8f2 !important; /* Colore bianco sporco per i segni grafici come { } e = */
@@ -192,7 +190,7 @@ nav.portfolio-panel:hover {
 
 /* 4. I COLORI DELLA SINTASSI (Ripristinati) */
 .code-keyword {
-    color: #ff79c6 !important; /* Rosa acceso per 'const' */
+    color: #ff79c6 !important; 
     font-weight: bold !important;
 }
 
@@ -201,11 +199,11 @@ nav.portfolio-panel:hover {
 }
 
 .code-boolean {
-    color: #bd93f9 !important; /* Viola/Lilla per il valore 'true' */
+    color: #bd93f9 !important; 
     font-style: italic !important;
 }
 
 .code-comment {
-    color: #6272a4 !important; /* Grigio-azzurro rilassante per i commenti */
+    color: #6272a4 !important; 
     font-style: italic !important;
 }
