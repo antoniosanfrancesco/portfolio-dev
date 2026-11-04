@@ -1,3 +1,6 @@
+// Forza il reset dello scroll in cima alla pagina al caricamento
+window.history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
 
 // 1. Script Navbar scrolled
 document.addEventListener('scroll', () => {
@@ -12,56 +15,94 @@ document.addEventListener('scroll', () => {
 // 2. Animazioni GSAP all'avvio della pagina
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Timeline della Hero (senza toccare il pulsante, che resta visibile e pronto)
+    let buttonReady = false;
+
+    // Timeline della Hero (inclusa l'entrata fluida della mag-zone)
     const tl = gsap.timeline({ 
-        defaults: { ease: "power3.out", duration: 0.7 } 
+        defaults: { ease: "power3.out", duration: 0.7 },
+        onComplete: () => {
+            buttonReady = true; // Sblocca l'effetto magnetico solo a intro completata
+        }
     });
 
     tl.from("#mainNav", { y: -50, opacity: 0 })
       .from(".hero-badge", { y: 20, opacity: 0 })
       .from("#hero h1", { y: 30, opacity: 0 })
       .from(".hero-lead", { y: 20, opacity: 0 })
+      .from(".mag-zone", { y: 20, opacity: 0, scale: 0.9 }) // Entrata del blocco magnetico
       .from(".code-window", { y: 40, opacity: 0, duration: 1, force3D: true });
 
 
-    // 3. EFFETTO MAGNETIC BUTTON CON RAGGIO DI PROSSIMITÀ
-    const magneticBtn = document.querySelector('.hero-btn');
+    // 3. EFFETTO MAGNETIC BUTTON ORIGINALE DAL SITO GSAP (Pulsante + Testo Dinamico)
+    var zone = document.querySelector('.mag-zone');
+    var strength = 0.4;
+    var labelStrength = 0.24;
+ 
+    if (zone) {
+        var btn = zone.querySelector(".mag-btn");
+        var label = btn.querySelector(".label");
+        var mode = zone.getAttribute("data-mode");
+        var overwrite = mode === "true" ? true : mode === "false" ? false : "auto";
+        var isFalse = mode === "false";
+        var hasWiggle = zone.getAttribute("data-wiggle") === "true";
+ 
+        // Wiggle opzionale (se attivato)
+        if (hasWiggle) {
+            gsap.to(btn, {
+                rotation: 12,
+                duration: 1.5,
+                repeat: -1,
+                ease: "wiggle({wiggles:8,type:easeOut})"
+            });
+        }
+ 
+        zone.addEventListener("mousemove", function(e) {
+            // Se l'animazione d'ingresso della Hero non è finita, non fare nulla
+            if (!buttonReady) return;
 
-    if (magneticBtn) {
-        document.addEventListener('mousemove', (e) => {
-            const rect = magneticBtn.getBoundingClientRect();
-            
-            // Centro esatto del pulsante
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            
-            // Distanza del mouse dal centro sugli assi X e Y
-            const distanceX = e.clientX - centerX;
-            const distanceY = e.clientY - centerY;
-            
-            // Calcoliamo la distanza lineare totale (Teorema di Pitagora)
-            const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-            
-            // Raggio d'azione in pixel intorno al bottone
-            const triggerRadius = 150;
-
-            if (distance < triggerRadius) {
-                // Se il mouse entra nel raggio, il pulsante viene attratto
-                gsap.to(magneticBtn, {
-                    x: distanceX * 0.4,
-                    y: distanceY * 0.4,
-                    duration: 0.3,
+            var rect = zone.getBoundingClientRect();
+            var mapX = gsap.utils.mapRange(rect.left, rect.right, -rect.width / 2, rect.width / 2, e.clientX);
+            var mapY = gsap.utils.mapRange(rect.top, rect.bottom, -rect.height / 2, rect.height / 2, e.clientY);
+ 
+            // Movimento del corpo del pulsante
+            gsap.to(btn, {
+                x: mapX * strength,
+                y: mapY * strength,
+                duration: isFalse ? 1.5 : 0.4,
+                ease: "power2.out",
+                overwrite: overwrite
+            });
+ 
+            // Movimento dinamico indipendente del testo interno (effetto parallax originale GSAP)
+            if (label) {
+                gsap.to(label, {
+                    x: mapX * labelStrength,
+                    y: mapY * labelStrength,
+                    duration: isFalse ? 1.5 : 0.4,
                     ease: "power2.out",
-                    overwrite: "auto"
+                    overwrite: true
                 });
-            } else {
-                // Se il mouse esce dal raggio, il pulsante torna al centro con rimbalzo elastico
-                gsap.to(magneticBtn, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.7,
-                    ease: "elastic.out(1, 0.4)",
-                    overwrite: "auto"
+            }
+        });
+ 
+        zone.addEventListener("mouseleave", function() {
+            if (!buttonReady) return;
+
+            // Ritorno al centro del pulsante
+            gsap.to(btn, {
+                x: 0, y: 0,
+                duration: isFalse ? 0.5 : 0.7,
+                ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
+                overwrite: overwrite
+            });
+ 
+            // Ritorno al centro del testo
+            if (label) {
+                gsap.to(label, {
+                    x: 0, y: 0,
+                    duration: isFalse ? 0.5 : 0.7,
+                    ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
+                    overwrite: true
                 });
             }
         });

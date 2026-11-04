@@ -225,3 +225,29 @@ nav.portfolio-panel:hover {
 	transition: background-color 0.2 ease, transform;
 }
 
+/* --- STILI MAGNETIC BUTTON (Template Ufficiale GSAP) --- */
+.mag-zone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  padding: 20px; /* Crea un'area di attivazione comoda attorno al bottone */
+}
+
+/* --- CORRETTORE PER IL TESTO DINAMICO DEL MAGNETIC BUTTON --- */
+.mag-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.mag-btn .label {
+  position: relative;
+  display: inline-block; /* Fondamentale: rende il testo trasformabile da GSAP */
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+
