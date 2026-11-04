@@ -139,14 +139,30 @@ nav.portfolio-panel:hover {
 
 /* 1. Il contenitore esterno (La scatola) */
 .code-window {
-    background-color: #282a36 !important; /* Sfondo scuro stile Dracula Theme */
+    background-color: #282a36 !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+    overflow: hidden !important; /* <--- Rimettiamo hidden qui per bloccare le sbavature interne */
+    box-shadow: 0 20px 40px rgba(104, 17, 114, 0.08) !important;
     display: block !important;
-    transition: transform 0.3s ease;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* 2. Il corpo interno */
+.code-body {
+    padding: 20px !important;
+    background-color: transparent !important;
+    font-family: 'JetBrains Mono', monospace !important; 
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    color: #f8f8f2 !important;
+    overflow-x: auto !important;     /* <--- Se il codice è troppo lungo, appare lo scroll interno invece di allargare il box */
+}
+
 
 .code-window:hover {
     transform: translateY(-5px); /* Micro-animazione quando ci passi sopra */
@@ -159,6 +175,8 @@ nav.portfolio-panel:hover {
     display: flex !important;
     gap: 8px !important;
     padding: 15px !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
 }
 
 /* I tre pallini colorati */
@@ -172,15 +190,6 @@ nav.portfolio-panel:hover {
 .code-dot.yellow { background-color: #ffbd2e !important; }
 .code-dot.green  { background-color: #27c93f !important; }
 
-/* 3. Il corpo interno (Testo base e layout) */
-.code-body {
-    padding: 20px !important;
-    background-color: transparent !important;
-    font-family: 'JetBrains Mono', monospace !important; 
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-    color: #f8f8f2 !important; /* Colore bianco sporco per i segni grafici come { } e = */
-}
 
 /* Colore dei numeri di riga lateral */
 .code-lines {
@@ -207,3 +216,12 @@ nav.portfolio-panel:hover {
     color: #6272a4 !important; 
     font-style: italic !important;
 }
+
+.hero-btn {
+	display: inline-block !important;
+	position: relative;
+	padding: 14px 32px !important;
+	font-size: 1rem !important;
+	transition: background-color 0.2 ease, transform;
+}
+
