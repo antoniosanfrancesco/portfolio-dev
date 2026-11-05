@@ -251,3 +251,20 @@ nav.portfolio-panel:hover {
   will-change: transform;
 }
 
+
+.split {
+  opacity: 1; 
+}
+
+.word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 4px; 
+	margin-right: 0.25em;
+}
+
+.word-anim {
+  display: inline-block;
+  will-change: transform;
+}

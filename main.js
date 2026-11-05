@@ -143,6 +143,62 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power3.out"
     });
 
+    // Animazione pannello contatti
+    gsap.set("#contatti .portfolio-panel", { opacity: 0, y: 50 });
+
+    gsap.to("#contatti .portfolio-panel", {
+        scrollTrigger: {
+            trigger: '#contatti',
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }, 
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out" // Corretto con stringa minuscola
+    });
+
+    // Split per l'animazione della sezione contatti
+    document.querySelectorAll(".split").forEach((el) => {
+        const text = el.textContent.trim();
+        el.innerHTML = ""; // Svuota il testo originale
+
+        // Divide il testo in base agli spazi
+        const words = text.split(" ");
+        
+        words.forEach((word, i) => {
+            // Crea un contenitore con overflow hidden (effetto maschera)
+            const wrapper = document.createElement("span");
+            wrapper.className = "word-wrapper";
+            
+            // Crea lo span che si muoverà realmente
+            const span = document.createElement("span");
+            span.textContent = word + (i < words.length - 1 ? " " : "");
+            span.className = "word-anim";
+            
+            wrapper.appendChild(span);
+            el.appendChild(wrapper);
+        });
+    });
+
+    // Animazione GSAP con ScrollTrigger sulle parole appena create
+    document.querySelectorAll(".split").forEach((container) => {
+        const wordAnims = container.querySelectorAll(".word-anim");
+
+        gsap.from(wordAnims, {
+            yPercent: 120,    // Parte da sotto (nascosto dal wrapper)
+            opacity: 0,       // Parte invisibile
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.04,    // Ritardo a cascata tra una parola e l'altra
+            scrollTrigger: {
+                trigger: container,
+                start: "top 85%", // Parte quando il blocco entra nell'85% dello schermo
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
 });
 
 // Forza ScrollTrigger a ricalcolare le posizioni a caricamento ultimato
